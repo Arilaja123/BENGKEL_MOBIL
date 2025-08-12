@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Layanan - Bengkel [Nama Bengkel]</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="Logo Bengkel" class="logo" />
+    <h1>Bengkel [Nama Bengkel]</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><a href="booking.html" class="active">Booking</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="form-booking">
+      <h2>Formulir Booking Layanan</h2>
+      <p>Silakan isi formulir di bawah ini untuk memesan layanan kami:</p>
+
+      <form action="#" method="post">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" required />
+
+        <label for="telepon">No. HP / WhatsApp:</label>
+        <input type="tel" id="telepon" name="telepon" required />
+
+        <label for="layanan">Pilih Layanan:</label>
+        <select id="layanan" name="layanan" required>
+          <option value="">-- Pilih --</option>
+          <option value="cas-aki">Cas Aki</option>
+          <option value="ganti-aki">Ganti Aki</option>
+          <option value="servis-dinamo">Servis Dinamo</option>
+        </select>
+
+        <label for="jadwal">Pilih Tanggal Booking:</label>
+        <input type="date" id="jadwal" name="jadwal" required />
+
+        <label for="catatan">Catatan Tambahan:</label>
+        <textarea id="catatan" name="catatan" rows="4" placeholder="Tulis kebutuhan khusus atau lokasi servis..."></textarea>
+
+        <button type="submit">Kirim Booking</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bengkel [Nama Bengkel]. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Produk - Bengkel [Nama Bengkel]</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <img src="img/logo.png" alt="Logo Bengkel" class="logo" />
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="produk.html" class="active">Produk</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><a href="booking.html">Booking</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Produk Section -->
+  <main class="content">
+    <section class="produk">
+      <h2>Produk Kami</h2>
+      <p>Lihat berbagai produk aki dan komponen kelistrikan yang kami sediakan:</p>
+
+      <div class="produk-grid">
+        <div class="produk-card">
+          <img src="img/aki1.jpg" alt="Aki Kering" />
+          <h3>Aki Kering 12V</h3>
+          <p class="harga">Rp 650.000</p>
+          <button onclick="addToCart('Aki Kering 12V', 650000)">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="produk-card">
+          <img src="img/aki2.jpg" alt="Aki Basah" />
+          <h3>Aki Basah 12V</h3>
+          <p class="harga">Rp 550.000</p>
+          <button onclick="addToCart('Aki Basah 12V', 550000)">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="produk-card">
+          <img src="img/dinamo1.jpg" alt="Dinamo Starter" />
+          <h3>Dinamo Starter</h3>
+          <p class="harga">Rp 1.200.000</p>
+          <button onclick="addToCart('Dinamo Starter', 1200000)">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="produk-card">
+          <img src="img/alternator1.jpg" alt="Alternator" />
+          <h3>Alternator</h3>
+          <p class="harga">Rp 1.500.000</p>
+          <button onclick="addToCart('Alternator', 1500000)">Tambah ke Keranjang</button>
+        </div>
+      </div>
+
+      <a href="checkout.html" class="btn-checkout">Lanjut ke Pembayaran</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Bengkel [Nama Bengkel]. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

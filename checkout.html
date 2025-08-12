@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Bengkel</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.checkout-container {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+table, th, td {
+  border: 1px solid #ddd;
+}
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+.qty-btn {
+  padding: 5px 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.qty-btn:hover {
+  background: #0056b3;
+}
+.total-harga {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+}
+.btn-bayar {
+  display: block;
+  width: 100%;
+  background: #28a745;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.btn-bayar:hover {
+  background: #218838;
+}
+</style>
+</head>
+<body>
+
+<div class="checkout-container">
+  <h2>Keranjang Belanja</h2>
+  <table id="cart-table">
+    <thead>
+      <tr>
+        <th>Produk</th>
+        <th>Harga</th>
+        <th>Qty</th>
+        <th>Subtotal</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div class="total-harga" id="total"></div>
+
+  <h3>Metode Pembayaran</h3>
+  <label><input type="radio" name="metode" value="BCA" required> BCA</label>
+  <label><input type="radio" name="metode" value="Mandiri"> Mandiri</label>
+  <label><input type="radio" name="metode" value="BRI"> BRI</label>
+  <label><input type="radio" name="metode" value="QRIS"> QRIS</label>
+
+  <a href="#" class="btn-bayar">Bayar Sekarang</a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+function renderCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let tbody = document.querySelector("#cart-table tbody");
+  let total = 0;
+  tbody.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    let subtotal = item.harga * item.qty;
+    total += subtotal;
+
+    let row = `<tr>
+      <td>${item.nama}</td>
+      <td>Rp ${item.harga.toLocaleString()}</td>
+      <td>
+        <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+        ${item.qty}
+        <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+      </td>
+      <td>Rp ${subtotal.toLocaleString()}</td>
+      <td><button class="qty-btn" onclick="removeItem(${index})">Hapus</button></td>
+    </tr>`;
+    tbody.innerHTML += row;
+  });
+
+  document.getElementById("total").textContent = "Total: Rp " + total.toLocaleString();
+}
+
+function changeQty(index, delta) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart[index].qty += delta;
+  if (cart[index].qty <= 0) cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+</body>
+</html>
